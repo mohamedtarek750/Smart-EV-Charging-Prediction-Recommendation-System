@@ -1,7 +1,12 @@
+# The committed models in artifacts/models/ were pickled with the versions noted in
+# artifacts/reports/metrics.json ("environment").  Pickled estimators are NOT portable
+# across major numpy / scikit-learn versions - if yours differ, just retrain:
+#     python -m src.models.train        (~40 seconds)
+
 # Core
-numpy>=1.26
+numpy>=2.0
 pandas>=2.1
-scikit-learn>=1.4
+scikit-learn>=1.6
 scipy>=1.11
 joblib>=1.3
 

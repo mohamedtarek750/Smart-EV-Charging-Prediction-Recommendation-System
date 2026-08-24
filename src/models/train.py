@@ -214,8 +214,17 @@ def save_test_predictions(df: pd.DataFrame, models: dict[str, TrainedModel]) -> 
 
 # --------------------------------------------------------------------------- #
 def write_report(models: dict[str, TrainedModel], cascade: dict, df: pd.DataFrame) -> None:
+    import platform
+    import sklearn
+
     payload = {
         "generated_at": pd.Timestamp.now().isoformat(timespec="seconds"),
+        "environment": {
+            "python": platform.python_version(),
+            "numpy": np.__version__,
+            "pandas": pd.__version__,
+            "scikit_learn": sklearn.__version__,
+        },
         "rows": int(len(df)),
         "period": [str(df.timestamp.min()), str(df.timestamp.max())],
         "models": {t: m.metrics for t, m in models.items()},

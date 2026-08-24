@@ -60,12 +60,17 @@ pip install -r requirements.txt
 The dataset and trained models are committed, so you can go straight to the apps:
 
 ```bash
-streamlit run app/dashboard.py
+python -m streamlit run app/dashboard.py
 ```
 
 ```bash
-uvicorn app.api:app --reload
+python -m uvicorn app.api:app --reload
 ```
+
+> **Use `python -m`, not the bare `streamlit` / `uvicorn` commands.** If you have more
+> than one Python installed, the console scripts on your `PATH` can belong to a
+> *different* interpreter than `python` does — and the models will fail to load. See
+> [Troubleshooting](#troubleshooting).
 
 To rebuild everything from scratch (~4 minutes):
 
@@ -349,6 +354,40 @@ python -m tests.test_pipeline
 - **Optimiser correctness** — the hourly cap is respected, no car charges outside its
   parking window or above its power limit, and the peak drops *while the energy is still
   delivered* (otherwise "peak shaving" is just not charging the cars).
+
+---
+
+## Troubleshooting
+
+**`ValueError: <class 'numpy.random._pcg64.PCG64'> is not a known BitGenerator module`**
+(or any other error while loading `artifacts/models/*.joblib`)
+
+The apps are running on a different Python installation than the one that trained the
+models. Pickled scikit-learn estimators are not portable across major numpy or
+scikit-learn versions. The classic Windows version of this trap:
+
+```bash
+where python      # C:\Python314\python.exe        numpy 2.x
+where streamlit   # ...\Python312\Scripts\streamlit  numpy 1.x   <- different interpreter
+```
+
+Fix it either way:
+
+```bash
+python -m streamlit run app/dashboard.py    # use the interpreter, not the console script
+```
+
+```bash
+python -m src.models.train                  # or retrain in whichever env you prefer (~40 s)
+```
+
+The environment that produced the committed models is recorded under `"environment"` in
+`artifacts/reports/metrics.json`, and `load_models()` prints all of this back to you if
+unpickling fails.
+
+**`ModuleNotFoundError: No module named 'src'`** — you are not in the project root.
+`cd` into the folder containing `README.md` first; every command is run as a module
+(`python -m ...`) from there.
 
 ---
 

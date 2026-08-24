@@ -1,6 +1,6 @@
 # Model report
 
-Generated 2026-08-24T11:42:55 — 171,840 station-hour rows (2025-01-08 → 2025-12-31).
+Generated 2026-08-24T11:54:45 — 171,840 station-hour rows (2025-01-08 → 2025-12-31).
 
 Validation is a **time split**: the final 2 months are held out.
 

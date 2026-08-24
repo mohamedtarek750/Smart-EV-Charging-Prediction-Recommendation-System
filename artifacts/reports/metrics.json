@@ -1,5 +1,11 @@
 {
-  "generated_at": "2026-08-24T11:42:55",
+  "generated_at": "2026-08-24T11:54:45",
+  "environment": {
+    "python": "3.14.2",
+    "numpy": "2.4.4",
+    "pandas": "3.0.3",
+    "scikit_learn": "1.9.0"
+  },
   "rows": 171840,
   "period": [
     "2025-01-08 00:00:00",
@@ -26,7 +32,7 @@
       "n_train": 142560,
       "n_test": 29280,
       "cutoff": "2025-10-31 23:00:00",
-      "fit_seconds": 7.2,
+      "fit_seconds": 8.5,
       "n_iter": 146
     },
     "avg_wait_min": {
@@ -49,7 +55,7 @@
       "n_train": 142560,
       "n_test": 29280,
       "cutoff": "2025-10-31 23:00:00",
-      "fit_seconds": 4.8,
+      "fit_seconds": 4.2,
       "n_iter": 127,
       "bucket_accuracy": 0.9366120218579235,
       "within_5min_pct": 93.04986338797814,
@@ -75,7 +81,7 @@
       "n_train": 142560,
       "n_test": 29280,
       "cutoff": "2025-10-31 23:00:00",
-      "fit_seconds": 10.1,
+      "fit_seconds": 7.9,
       "n_iter": 257
     }
   },

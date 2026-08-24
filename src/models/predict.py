@@ -14,6 +14,7 @@ so the wait and load forecasts are consistent with the demand forecast.
 """
 from __future__ import annotations
 
+import json
 from dataclasses import dataclass
 from functools import lru_cache
 
@@ -54,15 +55,50 @@ class LoadedModel:
         return np.clip(p, 0.0, None)
 
 
+MODEL_LOAD_HELP = """
+Could not unpickle {path}
+
+    {error}
+
+The saved models were built with numpy {saved_numpy} / scikit-learn {saved_sklearn};
+this interpreter has numpy {have_numpy} / scikit-learn {have_sklearn}.  Pickled
+estimators are not portable across major numpy or scikit-learn versions.
+
+Two ways out:
+
+  1. Run everything with one interpreter.  On Windows the usual trap is that
+     `python` and `streamlit` resolve to *different* installations - launch the
+     apps through the interpreter instead of the console script:
+
+         python -m streamlit run app/dashboard.py
+         python -m uvicorn app.api:app --reload
+
+  2. Or just retrain in the environment you want to use (about 40 seconds):
+
+         python -m src.models.train
+"""
+
+
 @lru_cache(maxsize=1)
 def load_models() -> dict[str, LoadedModel]:
+    import sklearn
+
     out = {}
     for t in TARGETS:
         path = config.MODELS_DIR / f"{t}.joblib"
         if not path.exists():
             raise FileNotFoundError(
                 f"{path} is missing - run `python -m src.models.train` first.")
-        b = joblib.load(path)
+        try:
+            b = joblib.load(path)
+        except Exception as exc:
+            meta = json.loads((config.REPORTS_DIR / "metrics.json").read_text(encoding="utf-8")) \
+                if (config.REPORTS_DIR / "metrics.json").exists() else {}
+            env = meta.get("environment", {})
+            raise RuntimeError(MODEL_LOAD_HELP.format(
+                path=path, error=f"{exc.__class__.__name__}: {exc}",
+                saved_numpy=env.get("numpy", "?"), saved_sklearn=env.get("scikit_learn", "?"),
+                have_numpy=np.__version__, have_sklearn=sklearn.__version__)) from exc
         out[t] = LoadedModel(b["target"], b["model"], b["features"], b["log_target"],
                              b.get("metrics", {}))
     return out
