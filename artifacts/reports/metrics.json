@@ -1,0 +1,287 @@
+{
+  "generated_at": "2026-08-24T11:42:55",
+  "rows": 171840,
+  "period": [
+    "2025-01-08 00:00:00",
+    "2025-12-31 23:00:00"
+  ],
+  "models": {
+    "arrivals": {
+      "model": {
+        "mae": 0.9799511213065586,
+        "rmse": 1.5053232616434715,
+        "r2": 0.7463109326290123,
+        "smape_pct": 113.37825697884386,
+        "bias": -0.058346120452566645
+      },
+      "baseline": {
+        "mae": 1.289993169398907,
+        "rmse": 2.1147010149223604,
+        "r2": 0.4993431602069982,
+        "smape_pct": 105.51241757590802,
+        "bias": -0.013558743169398908
+      },
+      "baseline_name": "arrivals_lag168",
+      "uplift_mae_pct": 24.034394557051613,
+      "n_train": 142560,
+      "n_test": 29280,
+      "cutoff": "2025-10-31 23:00:00",
+      "fit_seconds": 7.2,
+      "n_iter": 146
+    },
+    "avg_wait_min": {
+      "model": {
+        "mae": 1.104597506463149,
+        "rmse": 4.125024235808804,
+        "r2": 0.618475002444814,
+        "smape_pct": 163.16727620076674,
+        "bias": -0.6082077138426758
+      },
+      "baseline": {
+        "mae": 1.8827765562854903,
+        "rmse": 5.827853915861596,
+        "r2": 0.2384694978018952,
+        "smape_pct": 173.015122227255,
+        "bias": -0.8748586915629065
+      },
+      "baseline_name": "wait_profile",
+      "uplift_mae_pct": 41.33146056150191,
+      "n_train": 142560,
+      "n_test": 29280,
+      "cutoff": "2025-10-31 23:00:00",
+      "fit_seconds": 4.8,
+      "n_iter": 127,
+      "bucket_accuracy": 0.9366120218579235,
+      "within_5min_pct": 93.04986338797814,
+      "mae_busy_hours": 7.726728674659169
+    },
+    "energy_kwh": {
+      "model": {
+        "mae": 14.515983542731826,
+        "rmse": 23.476017374554264,
+        "r2": 0.9272325680246066,
+        "smape_pct": 47.8619656401197,
+        "bias": 0.01824754504438552
+      },
+      "baseline": {
+        "mae": 34.295703246756624,
+        "rmse": 51.21997704562739,
+        "r2": 0.6536087100869585,
+        "smape_pct": 86.9224964052863,
+        "bias": -0.6007388262988044
+      },
+      "baseline_name": "energy_kwh_lag168",
+      "uplift_mae_pct": 57.6740461092466,
+      "n_train": 142560,
+      "n_test": 29280,
+      "cutoff": "2025-10-31 23:00:00",
+      "fit_seconds": 10.1,
+      "n_iter": 257
+    }
+  },
+  "cascade_end_to_end": {
+    "avg_wait_min": {
+      "mae": 1.3142821338854451,
+      "rmse": 4.692754078990318,
+      "r2": 0.5062289983563175,
+      "smape_pct": 169.70312376559957,
+      "bias": -0.7555671767934826,
+      "bucket_accuracy": 0.9257513661202186
+    },
+    "energy_kwh": {
+      "mae": 18.552726849008994,
+      "rmse": 29.1808820932981,
+      "r2": 0.8875692686612795,
+      "smape_pct": 59.11838066938431,
+      "bias": -0.17014410115861694
+    }
+  },
+  "top_features": {
+    "arrivals": [
+      [
+        "arrivals_profile",
+        0.66397
+      ],
+      [
+        "arrivals_roll3",
+        0.03067
+      ],
+      [
+        "expected_pressure",
+        0.02611
+      ],
+      [
+        "arrivals_roll24",
+        0.02123
+      ],
+      [
+        "hour_cos",
+        0.00732
+      ],
+      [
+        "arrivals_lag2",
+        0.00451
+      ],
+      [
+        "city_arrivals_lag24",
+        0.00426
+      ],
+      [
+        "arrivals_lag168",
+        0.00417
+      ],
+      [
+        "arrivals_lag1",
+        0.00369
+      ],
+      [
+        "utilisation_roll24",
+        0.00363
+      ],
+      [
+        "hour",
+        0.0032
+      ],
+      [
+        "city_load_lag24",
+        0.00294
+      ],
+      [
+        "city_arrivals_lag1",
+        0.00275
+      ],
+      [
+        "is_weekend",
+        0.00217
+      ],
+      [
+        "event_multiplier",
+        0.00217
+      ]
+    ],
+    "avg_wait_min": [
+      [
+        "arrivals",
+        0.70763
+      ],
+      [
+        "avg_wait_min_lag1",
+        0.1698
+      ],
+      [
+        "chargers_per_arrival_lag1",
+        0.14818
+      ],
+      [
+        "utilisation_lag1",
+        0.06311
+      ],
+      [
+        "avg_session_min_lag1",
+        0.05926
+      ],
+      [
+        "n_chargers",
+        0.04333
+      ],
+      [
+        "capacity_kw",
+        0.02406
+      ],
+      [
+        "headroom_lag1",
+        0.0077
+      ],
+      [
+        "expected_pressure",
+        0.00469
+      ],
+      [
+        "utilisation_roll3",
+        0.00232
+      ],
+      [
+        "avg_session_min_roll24",
+        0.00199
+      ],
+      [
+        "arrivals_roll24",
+        0.00162
+      ],
+      [
+        "district",
+        0.00147
+      ],
+      [
+        "arrivals_roll3",
+        0.0014
+      ],
+      [
+        "arrivals_lag24",
+        0.0012
+      ]
+    ],
+    "energy_kwh": [
+      [
+        "arrivals",
+        0.26698
+      ],
+      [
+        "arrivals_lag1",
+        0.14329
+      ],
+      [
+        "utilisation_lag1",
+        0.05964
+      ],
+      [
+        "arrivals_roll3",
+        0.05036
+      ],
+      [
+        "avg_session_min_lag1",
+        0.02866
+      ],
+      [
+        "n_chargers",
+        0.02761
+      ],
+      [
+        "energy_kwh_lag1",
+        0.01873
+      ],
+      [
+        "capacity_kw",
+        0.00658
+      ],
+      [
+        "district",
+        0.00284
+      ],
+      [
+        "energy_profile",
+        0.00269
+      ],
+      [
+        "energy_kwh_lag2",
+        0.00192
+      ],
+      [
+        "charger_kw",
+        0.00114
+      ],
+      [
+        "soc_arrival_roll24",
+        0.00113
+      ],
+      [
+        "temp_c",
+        0.00102
+      ],
+      [
+        "arrivals_roll24",
+        0.00089
+      ]
+    ]
+  }
+}

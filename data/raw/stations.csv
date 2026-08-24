@@ -1,0 +1,21 @@
+station_id,name,district,profile,lat,lon,n_chargers,charger_kw,demand_scale,capacity_kw
+ST01,Government District Hub,Government District,government,30.0086,31.7395,12,60.0,1.55,720.0
+ST02,Ministries Plaza,Government District,government,30.0121,31.7462,8,50.0,1.2,400.0
+ST03,Council of Ministers Garage,Government District,government,30.0044,31.7331,6,22.0,0.85,132.0
+ST04,Iconic Tower CBD,Business District,business,29.9931,31.7188,14,120.0,1.7,1680.0
+ST05,Financial District North,Business District,business,29.9974,31.7241,10,60.0,1.3,600.0
+ST06,Central Bank Parking,Business District,business,29.9902,31.7139,6,50.0,0.95,300.0
+ST07,R2 Residential Loop,R2 District,residential,30.0298,31.6957,8,22.0,1.1,176.0
+ST08,R3 Community Centre,R3 District,residential,30.0412,31.6822,6,22.0,0.9,132.0
+ST09,R5 Family Housing,R5 District,residential,29.9705,31.6931,8,22.0,1.05,176.0
+ST10,R7 Neighbourhood Point,R7 District,residential,29.9612,31.7488,4,22.0,0.65,88.0
+ST11,Green River Park,Green River,leisure,30.0032,31.7104,6,50.0,0.95,300.0
+ST12,Downtown Mall Level B1,Downtown,retail,29.9985,31.7318,16,60.0,1.75,960.0
+ST13,Expo City Gate 3,Expo City,retail,29.9761,31.7602,10,60.0,1.15,600.0
+ST14,Capital Airport Terminal,Capital Airport,transit,30.0879,31.859,12,120.0,1.4,1440.0
+ST15,Monorail Interchange,Bin Zayed Axis,transit,30.0203,31.674,10,120.0,1.35,1200.0
+ST16,Regional Ring Road Rest Stop,Ring Road,transit,29.9548,31.6612,8,150.0,1.25,1200.0
+ST17,Al Massa Hotel,Diplomatic District,hotel,30.0157,31.7256,6,50.0,0.8,300.0
+ST18,Diplomatic Quarter Annex,Diplomatic District,hotel,30.0189,31.7175,4,50.0,0.6,200.0
+ST19,Knowledge City Campus,Knowledge City,education,29.9836,31.6885,8,22.0,1.0,176.0
+ST20,Sports City Arena,Sports City,leisure,29.9664,31.7024,6,60.0,0.85,360.0
