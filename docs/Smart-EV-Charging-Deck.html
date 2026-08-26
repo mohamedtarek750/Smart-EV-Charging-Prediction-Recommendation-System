@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<title>Smart EV Charging — Project Deck</title>
+<meta name="hz:slide-selector" content=".slide"/>
+<meta name="hz:canvas-width" content="1920"/>
+<meta name="hz:canvas-height" content="1080"/>
+<link rel="stylesheet" href="https://use.typekit.net/bnj0vsp.css">
+<style>
+@page { size: 20in 11.25in; margin: 0; }
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { background: #05080E; font-family: "roboto", sans-serif; }
+
+.slide {
+  position: relative; width: 1920px; height: 1080px; overflow: hidden;
+  background: #080D16; color: #E9F0FA; padding: 74px 96px 66px;
+  page-break-after: always; break-after: page;
+}
+.slide:last-child { page-break-after: auto; break-after: auto; }
+
+.eyebrow {
+  font-family: "ubuntu-mono", monospace; font-size: 21px; letter-spacing: .22em;
+  text-transform: uppercase; color: #34D399; font-weight: 700;
+}
+.h1 { font-family: "roboto", sans-serif; font-weight: 900; font-size: 116px;
+      line-height: .96; letter-spacing: -.028em; color: #E9F0FA; }
+.h2 { font-family: "roboto", sans-serif; font-weight: 900; font-size: 54px;
+      line-height: 1.04; letter-spacing: -.022em; color: #E9F0FA; }
+.lede { font-size: 30px; line-height: 1.5; color: #8A9BB2; font-weight: 400; }
+.body { font-size: 24px; line-height: 1.62; color: #C2CFE0; font-weight: 400; }
+.label { font-family: "ubuntu-mono", monospace; font-size: 17px; letter-spacing: .16em;
+         text-transform: uppercase; color: #8A9BB2; font-weight: 700; }
+.num { font-family: "ubuntu-mono", monospace; font-weight: 700; }
+
+.slide-no {
+  position: absolute; right: 96px; bottom: 46px; font-family: "ubuntu-mono", monospace;
+  font-size: 19px; color: #5A6B82; font-weight: 700; letter-spacing: .1em;
+}
+.foot {
+  position: absolute; left: 96px; bottom: 46px; font-family: "ubuntu-mono", monospace;
+  font-size: 18px; color: #5A6B82; letter-spacing: .04em;
+}
+.rule { height: 4px; width: 116px; background: #34D399; border-radius: 2px; }
+
+.panel { background: #0F1826; border: 1px solid #1E2C42; border-radius: 16px; }
+.stat-v { font-family: "ubuntu-mono", monospace; font-weight: 700; font-size: 52px;
+          line-height: 1; color: #E9F0FA; letter-spacing: -.02em; }
+.stat-l { font-size: 19px; color: #8A9BB2; margin-top: 12px; line-height: 1.35; }
+
+table.data { border-collapse: collapse; width: 100%; }
+table.data th {
+  font-family: "ubuntu-mono", monospace; font-size: 17px; letter-spacing: .1em;
+  text-transform: uppercase; color: #8A9BB2; font-weight: 700; text-align: left;
+  padding: 0 20px 14px 0; border-bottom: 1px solid #1E2C42;
+}
+table.data td { font-size: 23px; color: #C8D5E6; padding: 12px 20px 12px 0;
+                border-bottom: 1px solid #16223A; }
+table.data td.mono { font-family: "ubuntu-mono", monospace; font-weight: 700; color: #E9F0FA; }
+table.data tr:last-child td { border-bottom: none; }
+
+.dot { display: inline-block; width: 13px; height: 13px; border-radius: 50%;
+       margin-right: 11px; vertical-align: 1px; }
+ul.ticks { list-style: none; }
+ul.ticks li { font-size: 23px; line-height: 1.48; color: #C2CFE0; padding-left: 34px;
+              position: relative; margin-bottom: 14px; }
+ul.ticks li::before { content: ""; position: absolute; left: 0; top: 13px; width: 15px;
+                      height: 3px; background: #34D399; border-radius: 2px; }
+ul.ticks li b { color: #E9F0FA; font-weight: 700; }
+
+</style>
+</head>
+<body>
+
+<div class="slide" data-canvas-width="1920" data-canvas-height="1080">
+  <div style="position:absolute;inset:0;background:
+       radial-gradient(1100px 640px at 78% 8%, rgba(52,211,153,.13), transparent 62%),
+       radial-gradient(900px 560px at 8% 96%, rgba(56,189,248,.10), transparent 60%);"></div>
+
+  <div style="position:relative;">
+    <div class="eyebrow">New Administrative Capital &nbsp;·&nbsp; Egypt</div>
+    <div class="h1" style="margin-top:26px;">Smart EV Charging</div>
+    <div class="h1" style="color:#34D399;">Prediction &amp; Recommendation</div>
+    <div class="rule" style="margin:38px 0 30px;"></div>
+    <div class="lede" style="max-width:1180px;">
+      Three machine-learning models forecast a 20-station charging network one hour ahead.
+      A linear program then decides how to spread that load across the grid.
+    </div>
+  </div>
+
+  <div style="position:absolute;left:96px;right:96px;bottom:170px;display:flex;gap:26px;">
+    <div class="panel" style="flex:1;padding:32px 34px;">
+      <div class="stat-v">20</div><div class="stat-l">charging stations across the city</div></div><div class="panel" style="flex:1;padding:32px 34px;">
+      <div class="stat-v">168</div><div class="stat-l">chargers · 11.1 MW installed</div></div><div class="panel" style="flex:1;padding:32px 34px;">
+      <div class="stat-v">175,200</div><div class="stat-l">station-hours of history</div></div><div class="panel" style="flex:1;padding:32px 34px;">
+      <div class="stat-v">297,856</div><div class="stat-l">charging sessions simulated</div></div>
+  </div>
+
+  <div style="position:absolute;left:96px;right:96px;bottom:104px;display:flex;gap:44px;">
+    <div style="font-size:23px;color:#8A9BB2;">
+      <span class="dot" style="background:#34D399;"></span><b style="color:#E9F0FA;">Driver</b>
+      &nbsp;— where do I charge, and how long will it really take?
+    </div>
+    <div style="font-size:23px;color:#8A9BB2;">
+      <span class="dot" style="background:#38BDF8;"></span><b style="color:#E9F0FA;">City operator</b>
+      &nbsp;— what will the network and the grid do tonight?
+    </div>
+  </div>
+
+  <div class="foot">github.com/mohamedtarek750/Smart-EV-Charging-Prediction-Recommendation-System</div>
+  <div class="slide-no">01 / 05</div>
+</div>
+
+<div class="slide" data-canvas-width="1920" data-canvas-height="1080">
+  <div class="eyebrow">01 &nbsp;·&nbsp; The data</div>
+  <div class="h2" style="margin-top:20px;max-width:1500px;">
+    No public dataset exists — so the city was simulated
+  </div>
+  <div class="rule" style="margin:28px 0 34px;"></div>
+
+  <div style="display:flex;gap:56px;align-items:flex-start;">
+    <div style="width:660px;flex:none;">
+      <div class="body" style="margin-bottom:26px;">
+        A <b style="color:#E9F0FA;">discrete-event simulator</b> — not random numbers.
+        Every car is an event with an arrival time, a queue and a charging session.
+      </div>
+      <ul class="ticks">
+        <li><b>Eight venue types</b>, each with its own hourly demand shape — government,
+            business, residential, retail, transit, leisure, hotel, education</li>
+        <li><b>Friday–Saturday weekend</b> and 17 Egyptian public holidays</li>
+        <li><b>Charging physics</b> — pack size, state of charge, power taper above 80 %,
+            thermal penalty in cold and heat</li>
+        <li><b>M/M/c queue with abandonment</b> — 6.9 % of drivers give up and leave</li>
+        <li><b>Weather, venue events, +45 % adoption growth</b> across the year</li>
+      </ul>
+      <div class="panel" style="margin-top:26px;padding:20px 26px;display:flex;gap:38px;">
+        <div><div class="stat-v" style="font-size:38px;">11,082</div>
+             <div class="stat-l">MWh delivered</div></div>
+        <div><div class="stat-v" style="font-size:38px;">32.1 %</div>
+             <div class="stat-l">mean utilisation</div></div>
+        <div><div class="stat-v" style="font-size:38px;">3,439</div>
+             <div class="stat-l">kW city peak load</div></div>
+      </div>
+    </div>
+
+    <div style="flex:1;min-width:0;">
+      <div class="label" style="margin-bottom:16px;">
+        Mean charger utilisation — 20 stations × 24 hours
+      </div>
+      <svg viewBox="0 0 990 480" width="990" height="480" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Mean charger utilisation by station and hour of day"><text x="236" y="14" fill="#8A9BB2" font-size="12" font-family="ubuntu-mono, monospace" text-anchor="middle">00</text><text x="332" y="14" fill="#8A9BB2" font-size="12" font-family="ubuntu-mono, monospace" text-anchor="middle">03</text><text x="428" y="14" fill="#8A9BB2" font-size="12" font-family="ubuntu-mono, monospace" text-anchor="middle">06</text><text x="524" y="14" fill="#8A9BB2" font-size="12" font-family="ubuntu-mono, monospace" text-anchor="middle">09</text><text x="620" y="14" fill="#8A9BB2" font-size="12" font-family="ubuntu-mono, monospace" text-anchor="middle">12</text><text x="716" y="14" fill="#8A9BB2" font-size="12" font-family="ubuntu-mono, monospace" text-anchor="middle">15</text><text x="812" y="14" fill="#8A9BB2" font-size="12" font-family="ubuntu-mono, monospace" text-anchor="middle">18</text><text x="908" y="14" fill="#8A9BB2" font-size="12" font-family="ubuntu-mono, monospace" text-anchor="middle">21</text><text x="210" y="39" fill="#8A9BB2" font-size="12" font-family="roboto, sans-serif" text-anchor="end">Downtown Mall Level B1</text><rect x="222" y="26" width="29" height="18" rx="2" fill="#268689"/><rect x="254" y="26" width="29" height="18" rx="2" fill="#1b5883"/><rect x="286" y="26" width="29" height="18" rx="2" fill="#174162"/><rect x="318" y="26" width="29" height="18" rx="2" fill="#14314c"/><rect x="350" y="26" width="29" height="18" rx="2" fill="#122840"/><rect x="382" y="26" width="29" height="18" rx="2" fill="#12253c"/><rect x="414" y="26" width="29" height="18" rx="2" fill="#12273f"/><rect x="446" y="26" width="29" height="18" rx="2" fill="#14314d"/><rect x="478" y="26" width="29" height="18" rx="2" fill="#174163"/><rect x="510" y="26" width="29" height="18" rx="2" fill="#1c5e86"/><rect x="542" y="26" width="29" height="18" rx="2" fill="#29938a"/><rect x="574" y="26" width="29" height="18" rx="2" fill="#88ac64"/><rect x="606" y="26" width="29" height="18" rx="2" fill="#e0a33e"/><rect x="638" y="26" width="29" height="18" rx="2" fill="#e18143"/><rect x="670" y="26" width="29" height="18" rx="2" fill="#e17146"/><rect x="702" y="26" width="29" height="18" rx="2" fill="#e26947"/><rect x="734" y="26" width="29" height="18" rx="2" fill="#e26048"/><rect x="766" y="26" width="29" height="18" rx="2" fill="#e25a49"/><rect x="798" y="26" width="29" height="18" rx="2" fill="#e2554a"/><rect x="830" y="26" width="29" height="18" rx="2" fill="#e2574a"/><rect x="862" y="26" width="29" height="18" rx="2" fill="#e26048"/><rect x="894" y="26" width="29" height="18" rx="2" fill="#e17545"/><rect x="926" y="26" width="29" height="18" rx="2" fill="#e0a03e"/><rect x="958" y="26" width="29" height="18" rx="2" fill="#70ab6e"/><text x="210" y="60" fill="#8A9BB2" font-size="12" font-family="roboto, sans-serif" text-anchor="end">Capital Airport Terminal</text><rect x="222" y="47" width="29" height="18" rx="2" fill="#206d87"/><rect x="254" y="47" width="29" height="18" rx="2" fill="#1a5680"/><rect x="286" y="47" width="29" height="18" rx="2" fill="#18476c"/><rect x="318" y="47" width="29" height="18" rx="2" fill="#163c5c"/><rect x="350" y="47" width="29" height="18" rx="2" fill="#153755"/><rect x="382" y="47" width="29" height="18" rx="2" fill="#164061"/><rect x="414" y="47" width="29" height="18" rx="2" fill="#1c5d86"/><rect x="446" y="47" width="29" height="18" rx="2" fill="#29938a"/><rect x="478" y="47" width="29" height="18" rx="2" fill="#6fab6f"/><rect x="510" y="47" width="29" height="18" rx="2" fill="#a6ad56"/><rect x="542" y="47" width="29" height="18" rx="2" fill="#b0ae51"/><rect x="574" y="47" width="29" height="18" rx="2" fill="#a0ad59"/><rect x="606" y="47" width="29" height="18" rx="2" fill="#93ad5f"/><rect x="638" y="47" width="29" height="18" rx="2" fill="#87ac64"/><rect x="670" y="47" width="29" height="18" rx="2" fill="#8dac61"/><rect x="702" y="47" width="29" height="18" rx="2" fill="#a9ae55"/><rect x="734" y="47" width="29" height="18" rx="2" fill="#d3af42"/><rect x="766" y="47" width="29" height="18" rx="2" fill="#e09c3f"/><rect x="798" y="47" width="29" height="18" rx="2" fill="#e19640"/><rect x="830" y="47" width="29" height="18" rx="2" fill="#e0a33e"/><rect x="862" y="47" width="29" height="18" rx="2" fill="#beae4b"/><rect x="894" y="47" width="29" height="18" rx="2" fill="#6cab70"/><rect x="926" y="47" width="29" height="18" rx="2" fill="#2da38c"/><rect x="958" y="47" width="29" height="18" rx="2" fill="#268689"/><text x="210" y="81" fill="#8A9BB2" font-size="12" font-family="roboto, sans-serif" text-anchor="end">Monorail Interchange</text><rect x="222" y="68" width="29" height="18" rx="2" fill="#1e6587"/><rect x="254" y="68" width="29" height="18" rx="2" fill="#1a547d"/><rect x="286" y="68" width="29" height="18" rx="2" fill="#174468"/><rect x="318" y="68" width="29" height="18" rx="2" fill="#153958"/><rect x="350" y="68" width="29" height="18" rx="2" fill="#153654"/><rect x="382" y="68" width="29" height="18" rx="2" fill="#174264"/><rect x="414" y="68" width="29" height="18" rx="2" fill="#1d6086"/><rect x="446" y="68" width="29" height="18" rx="2" fill="#29938a"/><rect x="478" y="68" width="29" height="18" rx="2" fill="#65aa73"/><rect x="510" y="68" width="29" height="18" rx="2" fill="#99ad5c"/><rect x="542" y="68" width="29" height="18" rx="2" fill="#a2ad58"/><rect x="574" y="68" width="29" height="18" rx="2" fill="#8fac60"/><rect x="606" y="68" width="29" height="18" rx="2" fill="#71ab6e"/><rect x="638" y="68" width="29" height="18" rx="2" fill="#73ab6d"/><rect x="670" y="68" width="29" height="18" rx="2" fill="#81ac67"/><rect x="702" y="68" width="29" height="18" rx="2" fill="#97ad5d"/><rect x="734" y="68" width="29" height="18" rx="2" fill="#aeae53"/><rect x="766" y="68" width="29" height="18" rx="2" fill="#e0ae3c"/><rect x="798" y="68" width="29" height="18" rx="2" fill="#e09f3f"/><rect x="830" y="68" width="29" height="18" rx="2" fill="#e0aa3d"/><rect x="862" y="68" width="29" height="18" rx="2" fill="#b3ae50"/><rect x="894" y="68" width="29" height="18" rx="2" fill="#67ab72"/><rect x="926" y="68" width="29" height="18" rx="2" fill="#2ca08b"/><rect x="958" y="68" width="29" height="18" rx="2" fill="#247f89"/><text x="210" y="102" fill="#8A9BB2" font-size="12" font-family="roboto, sans-serif" text-anchor="end">Regional Ring Road Rest S…</text><rect x="222" y="89" width="29" height="18" rx="2" fill="#1d6187"/><rect x="254" y="89" width="29" height="18" rx="2" fill="#194f76"/><rect x="286" y="89" width="29" height="18" rx="2" fill="#174163"/><rect x="318" y="89" width="29" height="18" rx="2" fill="#153756"/><rect x="350" y="89" width="29" height="18" rx="2" fill="#143451"/><rect x="382" y="89" width="29" height="18" rx="2" fill="#163c5c"/><rect x="414" y="89" width="29" height="18" rx="2" fill="#1a5680"/><rect x="446" y="89" width="29" height="18" rx="2" fill="#268789"/><rect x="478" y="89" width="29" height="18" rx="2" fill="#49a980"/><rect x="510" y="89" width="29" height="18" rx="2" fill="#8aac63"/><rect x="542" y="89" width="29" height="18" rx="2" fill="#82ac66"/><rect x="574" y="89" width="29" height="18" rx="2" fill="#6dab70"/><rect x="606" y="89" width="29" height="18" rx="2" fill="#5eaa76"/><rect x="638" y="89" width="29" height="18" rx="2" fill="#4aa97f"/><rect x="670" y="89" width="29" height="18" rx="2" fill="#58aa79"/><rect x="702" y="89" width="29" height="18" rx="2" fill="#70ab6e"/><rect x="734" y="89" width="29" height="18" rx="2" fill="#a2ad58"/><rect x="766" y="89" width="29" height="18" rx="2" fill="#caaf46"/><rect x="798" y="89" width="29" height="18" rx="2" fill="#d3af42"/><rect x="830" y="89" width="29" height="18" rx="2" fill="#bdae4c"/><rect x="862" y="89" width="29" height="18" rx="2" fill="#91ac5f"/><rect x="894" y="89" width="29" height="18" rx="2" fill="#48a980"/><rect x="926" y="89" width="29" height="18" rx="2" fill="#2a978b"/><rect x="958" y="89" width="29" height="18" rx="2" fill="#227888"/><text x="210" y="123" fill="#8A9BB2" font-size="12" font-family="roboto, sans-serif" text-anchor="end">Expo City Gate 3</text><rect x="222" y="110" width="29" height="18" rx="2" fill="#1d6387"/><rect x="254" y="110" width="29" height="18" rx="2" fill="#174569"/><rect x="286" y="110" width="29" height="18" rx="2" fill="#143450"/><rect x="318" y="110" width="29" height="18" rx="2" fill="#122942"/><rect x="350" y="110" width="29" height="18" rx="2" fill="#12243b"/><rect x="382" y="110" width="29" height="18" rx="2" fill="#112238"/><rect x="414" y="110" width="29" height="18" rx="2" fill="#12243a"/><rect x="446" y="110" width="29" height="18" rx="2" fill="#132a43"/><rect x="478" y="110" width="29" height="18" rx="2" fill="#153553"/><rect x="510" y="110" width="29" height="18" rx="2" fill="#18486d"/><rect x="542" y="110" width="29" height="18" rx="2" fill="#1e6587"/><rect x="574" y="110" width="29" height="18" rx="2" fill="#288e8a"/><rect x="606" y="110" width="29" height="18" rx="2" fill="#3fa984"/><rect x="638" y="110" width="29" height="18" rx="2" fill="#8aac63"/><rect x="670" y="110" width="29" height="18" rx="2" fill="#b8ae4e"/><rect x="702" y="110" width="29" height="18" rx="2" fill="#ddb03e"/><rect x="734" y="110" width="29" height="18" rx="2" fill="#e0a33e"/><rect x="766" y="110" width="29" height="18" rx="2" fill="#e09a3f"/><rect x="798" y="110" width="29" height="18" rx="2" fill="#e19440"/><rect x="830" y="110" width="29" height="18" rx="2" fill="#e19440"/><rect x="862" y="110" width="29" height="18" rx="2" fill="#e09d3f"/><rect x="894" y="110" width="29" height="18" rx="2" fill="#cdaf45"/><rect x="926" y="110" width="29" height="18" rx="2" fill="#64aa74"/><rect x="958" y="110" width="29" height="18" rx="2" fill="#28918a"/><text x="210" y="144" fill="#8A9BB2" font-size="12" font-family="roboto, sans-serif" text-anchor="end">Iconic Tower CBD</text><rect x="222" y="131" width="29" height="18" rx="2" fill="#163e5f"/><rect x="254" y="131" width="29" height="18" rx="2" fill="#14334f"/><rect x="286" y="131" width="29" height="18" rx="2" fill="#132c45"/><rect x="318" y="131" width="29" height="18" rx="2" fill="#12263e"/><rect x="350" y="131" width="29" height="18" rx="2" fill="#12243a"/><rect x="382" y="131" width="29" height="18" rx="2" fill="#12253b"/><rect x="414" y="131" width="29" height="18" rx="2" fill="#14314c"/><rect x="446" y="131" width="29" height="18" rx="2" fill="#1a537d"/><rect x="478" y="131" width="29" height="18" rx="2" fill="#29958b"/><rect x="510" y="131" width="29" height="18" rx="2" fill="#76ab6c"/><rect x="542" y="131" width="29" height="18" rx="2" fill="#8eac61"/><rect x="574" y="131" width="29" height="18" rx="2" fill="#81ac67"/><rect x="606" y="131" width="29" height="18" rx="2" fill="#6bab71"/><rect x="638" y="131" width="29" height="18" rx="2" fill="#5faa76"/><rect x="670" y="131" width="29" height="18" rx="2" fill="#5faa76"/><rect x="702" y="131" width="29" height="18" rx="2" fill="#73ab6d"/><rect x="734" y="131" width="29" height="18" rx="2" fill="#8eac61"/><rect x="766" y="131" width="29" height="18" rx="2" fill="#afae52"/><rect x="798" y="131" width="29" height="18" rx="2" fill="#b5ae4f"/><rect x="830" y="131" width="29" height="18" rx="2" fill="#95ad5d"/><rect x="862" y="131" width="29" height="18" rx="2" fill="#53aa7c"/><rect x="894" y="131" width="29" height="18" rx="2" fill="#288e8a"/><rect x="926" y="131" width="29" height="18" rx="2" fill="#1f6a87"/><rect x="958" y="131" width="29" height="18" rx="2" fill="#194f77"/><text x="210" y="165" fill="#8A9BB2" font-size="12" font-family="roboto, sans-serif" text-anchor="end">R2 Residential Loop</text><rect x="222" y="152" width="29" height="18" rx="2" fill="#2b9c8b"/><rect x="254" y="152" width="29" height="18" rx="2" fill="#247e89"/><rect x="286" y="152" width="29" height="18" rx="2" fill="#1d6287"/><rect x="318" y="152" width="29" height="18" rx="2" fill="#194d74"/><rect x="350" y="152" width="29" height="18" rx="2" fill="#163f61"/><rect x="382" y="152" width="29" height="18" rx="2" fill="#153552"/><rect x="414" y="152" width="29" height="18" rx="2" fill="#153552"/><rect x="446" y="152" width="29" height="18" rx="2" fill="#174162"/><rect x="478" y="152" width="29" height="18" rx="2" fill="#194c72"/><rect x="510" y="152" width="29" height="18" rx="2" fill="#195078"/><rect x="542" y="152" width="29" height="18" rx="2" fill="#1a527a"/><rect x="574" y="152" width="29" height="18" rx="2" fill="#1a5680"/><rect x="606" y="152" width="29" height="18" rx="2" fill="#1b5984"/><rect x="638" y="152" width="29" height="18" rx="2" fill="#1d6387"/><rect x="670" y="152" width="29" height="18" rx="2" fill="#206d87"/><rect x="702" y="152" width="29" height="18" rx="2" fill="#237988"/><rect x="734" y="152" width="29" height="18" rx="2" fill="#288f8a"/><rect x="766" y="152" width="29" height="18" rx="2" fill="#47a981"/><rect x="798" y="152" width="29" height="18" rx="2" fill="#a3ad57"/><rect x="830" y="152" width="29" height="18" rx="2" fill="#d8b040"/><rect x="862" y="152" width="29" height="18" rx="2" fill="#e0ab3d"/><rect x="894" y="152" width="29" height="18" rx="2" fill="#c3af49"/><rect x="926" y="152" width="29" height="18" rx="2" fill="#8aac63"/><rect x="958" y="152" width="29" height="18" rx="2" fill="#4da97e"/><text x="210" y="186" fill="#8A9BB2" font-size="12" font-family="roboto, sans-serif" text-anchor="end">R5 Family Housing</text><rect x="222" y="173" width="29" height="18" rx="2" fill="#2a968b"/><rect x="254" y="173" width="29" height="18" rx="2" fill="#227688"/><rect x="286" y="173" width="29" height="18" rx="2" fill="#1b5c86"/><rect x="318" y="173" width="29" height="18" rx="2" fill="#18476b"/><rect x="350" y="173" width="29" height="18" rx="2" fill="#163b5a"/><rect x="382" y="173" width="29" height="18" rx="2" fill="#143451"/><rect x="414" y="173" width="29" height="18" rx="2" fill="#153654"/><rect x="446" y="173" width="29" height="18" rx="2" fill="#163e60"/><rect x="478" y="173" width="29" height="18" rx="2" fill="#18486d"/><rect x="510" y="173" width="29" height="18" rx="2" fill="#194f77"/><rect x="542" y="173" width="29" height="18" rx="2" fill="#194f77"/><rect x="574" y="173" width="29" height="18" rx="2" fill="#195179"/><rect x="606" y="173" width="29" height="18" rx="2" fill="#1b5884"/><rect x="638" y="173" width="29" height="18" rx="2" fill="#1d6287"/><rect x="670" y="173" width="29" height="18" rx="2" fill="#1f6987"/><rect x="702" y="173" width="29" height="18" rx="2" fill="#217288"/><rect x="734" y="173" width="29" height="18" rx="2" fill="#258389"/><rect x="766" y="173" width="29" height="18" rx="2" fill="#2ea78c"/><rect x="798" y="173" width="29" height="18" rx="2" fill="#85ac65"/><rect x="830" y="173" width="29" height="18" rx="2" fill="#bfaf4b"/><rect x="862" y="173" width="29" height="18" rx="2" fill="#c9af46"/><rect x="894" y="173" width="29" height="18" rx="2" fill="#a4ad57"/><rect x="926" y="173" width="29" height="18" rx="2" fill="#70ab6f"/><rect x="958" y="173" width="29" height="18" rx="2" fill="#43a983"/><text x="210" y="207" fill="#8A9BB2" font-size="12" font-family="roboto, sans-serif" text-anchor="end">Green River Park</text><rect x="222" y="194" width="29" height="18" rx="2" fill="#184a70"/><rect x="254" y="194" width="29" height="18" rx="2" fill="#153a59"/><rect x="286" y="194" width="29" height="18" rx="2" fill="#142f4a"/><rect x="318" y="194" width="29" height="18" rx="2" fill="#122840"/><rect x="350" y="194" width="29" height="18" rx="2" fill="#112339"/><rect x="382" y="194" width="29" height="18" rx="2" fill="#112035"/><rect x="414" y="194" width="29" height="18" rx="2" fill="#112339"/><rect x="446" y="194" width="29" height="18" rx="2" fill="#122840"/><rect x="478" y="194" width="29" height="18" rx="2" fill="#143451"/><rect x="510" y="194" width="29" height="18" rx="2" fill="#174467"/><rect x="542" y="194" width="29" height="18" rx="2" fill="#1a5681"/><rect x="574" y="194" width="29" height="18" rx="2" fill="#217288"/><rect x="606" y="194" width="29" height="18" rx="2" fill="#288e8a"/><rect x="638" y="194" width="29" height="18" rx="2" fill="#2ca28c"/><rect x="670" y="194" width="29" height="18" rx="2" fill="#44a982"/><rect x="702" y="194" width="29" height="18" rx="2" fill="#62aa74"/><rect x="734" y="194" width="29" height="18" rx="2" fill="#8aac63"/><rect x="766" y="194" width="29" height="18" rx="2" fill="#afae52"/><rect x="798" y="194" width="29" height="18" rx="2" fill="#bfaf4b"/><rect x="830" y="194" width="29" height="18" rx="2" fill="#b1ae51"/><rect x="862" y="194" width="29" height="18" rx="2" fill="#8eac61"/><rect x="894" y="194" width="29" height="18" rx="2" fill="#52aa7c"/><rect x="926" y="194" width="29" height="18" rx="2" fill="#29918a"/><rect x="958" y="194" width="29" height="18" rx="2" fill="#1f6a87"/><text x="210" y="228" fill="#8A9BB2" font-size="12" font-family="roboto, sans-serif" text-anchor="end">Government District Hub</text><rect x="222" y="215" width="29" height="18" rx="2" fill="#14324f"/><rect x="254" y="215" width="29" height="18" rx="2" fill="#132b45"/><rect x="286" y="215" width="29" height="18" rx="2" fill="#12263d"/><rect x="318" y="215" width="29" height="18" rx="2" fill="#112238"/><rect x="350" y="215" width="29" height="18" rx="2" fill="#112137"/><rect x="382" y="215" width="29" height="18" rx="2" fill="#12253c"/><rect x="414" y="215" width="29" height="18" rx="2" fill="#143552"/><rect x="446" y="215" width="29" height="18" rx="2" fill="#1c6086"/><rect x="478" y="215" width="29" height="18" rx="2" fill="#2c9f8b"/><rect x="510" y="215" width="29" height="18" rx="2" fill="#58aa79"/><rect x="542" y="215" width="29" height="18" rx="2" fill="#59aa79"/><rect x="574" y="215" width="29" height="18" rx="2" fill="#37a888"/><rect x="606" y="215" width="29" height="18" rx="2" fill="#2b9a8b"/><rect x="638" y="215" width="29" height="18" rx="2" fill="#28918a"/><rect x="670" y="215" width="29" height="18" rx="2" fill="#2a978b"/><rect x="702" y="215" width="29" height="18" rx="2" fill="#2da68c"/><rect x="734" y="215" width="29" height="18" rx="2" fill="#55aa7a"/><rect x="766" y="215" width="29" height="18" rx="2" fill="#81ac67"/><rect x="798" y="215" width="29" height="18" rx="2" fill="#78ab6b"/><rect x="830" y="215" width="29" height="18" rx="2" fill="#40a984"/><rect x="862" y="215" width="29" height="18" rx="2" fill="#26888a"/><rect x="894" y="215" width="29" height="18" rx="2" fill="#1e6587"/><rect x="926" y="215" width="29" height="18" rx="2" fill="#194c73"/><rect x="958" y="215" width="29" height="18" rx="2" fill="#163d5d"/><text x="210" y="249" fill="#8A9BB2" font-size="12" font-family="roboto, sans-serif" text-anchor="end">Financial District North</text><rect x="222" y="236" width="29" height="18" rx="2" fill="#143552"/><rect x="254" y="236" width="29" height="18" rx="2" fill="#132c45"/><rect x="286" y="236" width="29" height="18" rx="2" fill="#12263e"/><rect x="318" y="236" width="29" height="18" rx="2" fill="#112339"/><rect x="350" y="236" width="29" height="18" rx="2" fill="#112237"/><rect x="382" y="236" width="29" height="18" rx="2" fill="#12243b"/><rect x="414" y="236" width="29" height="18" rx="2" fill="#132d47"/><rect x="446" y="236" width="29" height="18" rx="2" fill="#194c73"/><rect x="478" y="236" width="29" height="18" rx="2" fill="#247e89"/><rect x="510" y="236" width="29" height="18" rx="2" fill="#2da68c"/><rect x="542" y="236" width="29" height="18" rx="2" fill="#3da985"/><rect x="574" y="236" width="29" height="18" rx="2" fill="#2ea88c"/><rect x="606" y="236" width="29" height="18" rx="2" fill="#2a998b"/><rect x="638" y="236" width="29" height="18" rx="2" fill="#278c8a"/><rect x="670" y="236" width="29" height="18" rx="2" fill="#288d8a"/><rect x="702" y="236" width="29" height="18" rx="2" fill="#2a998b"/><rect x="734" y="236" width="29" height="18" rx="2" fill="#2fa88c"/><rect x="766" y="236" width="29" height="18" rx="2" fill="#5faa76"/><rect x="798" y="236" width="29" height="18" rx="2" fill="#60aa76"/><rect x="830" y="236" width="29" height="18" rx="2" fill="#31a88a"/><rect x="862" y="236" width="29" height="18" rx="2" fill="#278b8a"/><rect x="894" y="236" width="29" height="18" rx="2" fill="#1f6a87"/><rect x="926" y="236" width="29" height="18" rx="2" fill="#19517a"/><rect x="958" y="236" width="29" height="18" rx="2" fill="#174163"/><text x="210" y="270" fill="#8A9BB2" font-size="12" font-family="roboto, sans-serif" text-anchor="end">R3 Community Centre</text><rect x="222" y="257" width="29" height="18" rx="2" fill="#248089"/><rect x="254" y="257" width="29" height="18" rx="2" fill="#1e6687"/><rect x="286" y="257" width="29" height="18" rx="2" fill="#194f76"/><rect x="318" y="257" width="29" height="18" rx="2" fill="#163f61"/><rect x="350" y="257" width="29" height="18" rx="2" fill="#153654"/><rect x="382" y="257" width="29" height="18" rx="2" fill="#14314d"/><rect x="414" y="257" width="29" height="18" rx="2" fill="#14314c"/><rect x="446" y="257" width="29" height="18" rx="2" fill="#153856"/><rect x="478" y="257" width="29" height="18" rx="2" fill="#174366"/><rect x="510" y="257" width="29" height="18" rx="2" fill="#18486d"/><rect x="542" y="257" width="29" height="18" rx="2" fill="#18466a"/><rect x="574" y="257" width="29" height="18" rx="2" fill="#18496e"/><rect x="606" y="257" width="29" height="18" rx="2" fill="#194d74"/><rect x="638" y="257" width="29" height="18" rx="2" fill="#1a527b"/><rect x="670" y="257" width="29" height="18" rx="2" fill="#1b5985"/><rect x="702" y="257" width="29" height="18" rx="2" fill="#1d6387"/><rect x="734" y="257" width="29" height="18" rx="2" fill="#217488"/><rect x="766" y="257" width="29" height="18" rx="2" fill="#288e8a"/><rect x="798" y="257" width="29" height="18" rx="2" fill="#41a984"/><rect x="830" y="257" width="29" height="18" rx="2" fill="#78ab6b"/><rect x="862" y="257" width="29" height="18" rx="2" fill="#86ac64"/><rect x="894" y="257" width="29" height="18" rx="2" fill="#64aa74"/><rect x="926" y="257" width="29" height="18" rx="2" fill="#3ca986"/><rect x="958" y="257" width="29" height="18" rx="2" fill="#2a998b"/><text x="210" y="291" fill="#8A9BB2" font-size="12" font-family="roboto, sans-serif" text-anchor="end">Sports City Arena</text><rect x="222" y="278" width="29" height="18" rx="2" fill="#174265"/><rect x="254" y="278" width="29" height="18" rx="2" fill="#143451"/><rect x="286" y="278" width="29" height="18" rx="2" fill="#132b44"/><rect x="318" y="278" width="29" height="18" rx="2" fill="#12243b"/><rect x="350" y="278" width="29" height="18" rx="2" fill="#112136"/><rect x="382" y="278" width="29" height="18" rx="2" fill="#112035"/><rect x="414" y="278" width="29" height="18" rx="2" fill="#112136"/><rect x="446" y="278" width="29" height="18" rx="2" fill="#12253c"/><rect x="478" y="278" width="29" height="18" rx="2" fill="#132e48"/><rect x="510" y="278" width="29" height="18" rx="2" fill="#163c5c"/><rect x="542" y="278" width="29" height="18" rx="2" fill="#194f77"/><rect x="574" y="278" width="29" height="18" rx="2" fill="#206f88"/><rect x="606" y="278" width="29" height="18" rx="2" fill="#258489"/><rect x="638" y="278" width="29" height="18" rx="2" fill="#28908a"/><rect x="670" y="278" width="29" height="18" rx="2" fill="#2ca18b"/><rect x="702" y="278" width="29" height="18" rx="2" fill="#35a889"/><rect x="734" y="278" width="29" height="18" rx="2" fill="#49a980"/><rect x="766" y="278" width="29" height="18" rx="2" fill="#62aa75"/><rect x="798" y="278" width="29" height="18" rx="2" fill="#87ac64"/><rect x="830" y="278" width="29" height="18" rx="2" fill="#85ac65"/><rect x="862" y="278" width="29" height="18" rx="2" fill="#5caa77"/><rect x="894" y="278" width="29" height="18" rx="2" fill="#2b9b8b"/><rect x="926" y="278" width="29" height="18" rx="2" fill="#227688"/><rect x="958" y="278" width="29" height="18" rx="2" fill="#1b5883"/><text x="210" y="312" fill="#8A9BB2" font-size="12" font-family="roboto, sans-serif" text-anchor="end">Al Massa Hotel</text><rect x="222" y="299" width="29" height="18" rx="2" fill="#194f77"/><rect x="254" y="299" width="29" height="18" rx="2" fill="#163f60"/><rect x="286" y="299" width="29" height="18" rx="2" fill="#143350"/><rect x="318" y="299" width="29" height="18" rx="2" fill="#132b44"/><rect x="350" y="299" width="29" height="18" rx="2" fill="#12243b"/><rect x="382" y="299" width="29" height="18" rx="2" fill="#11233a"/><rect x="414" y="299" width="29" height="18" rx="2" fill="#12253d"/><rect x="446" y="299" width="29" height="18" rx="2" fill="#142f4b"/><rect x="478" y="299" width="29" height="18" rx="2" fill="#163d5d"/><rect x="510" y="299" width="29" height="18" rx="2" fill="#17466a"/><rect x="542" y="299" width="29" height="18" rx="2" fill="#194e75"/><rect x="574" y="299" width="29" height="18" rx="2" fill="#194e75"/><rect x="606" y="299" width="29" height="18" rx="2" fill="#194f77"/><rect x="638" y="299" width="29" height="18" rx="2" fill="#1a5680"/><rect x="670" y="299" width="29" height="18" rx="2" fill="#1b5b86"/><rect x="702" y="299" width="29" height="18" rx="2" fill="#1d6387"/><rect x="734" y="299" width="29" height="18" rx="2" fill="#217488"/><rect x="766" y="299" width="29" height="18" rx="2" fill="#28908a"/><rect x="798" y="299" width="29" height="18" rx="2" fill="#35a889"/><rect x="830" y="299" width="29" height="18" rx="2" fill="#57aa79"/><rect x="862" y="299" width="29" height="18" rx="2" fill="#55aa7b"/><rect x="894" y="299" width="29" height="18" rx="2" fill="#35a889"/><rect x="926" y="299" width="29" height="18" rx="2" fill="#288f8a"/><rect x="958" y="299" width="29" height="18" rx="2" fill="#206e88"/><text x="210" y="333" fill="#8A9BB2" font-size="12" font-family="roboto, sans-serif" text-anchor="end">Ministries Plaza</text><rect x="222" y="320" width="29" height="18" rx="2" fill="#132a43"/><rect x="254" y="320" width="29" height="18" rx="2" fill="#12253d"/><rect x="286" y="320" width="29" height="18" rx="2" fill="#112237"/><rect x="318" y="320" width="29" height="18" rx="2" fill="#112136"/><rect x="350" y="320" width="29" height="18" rx="2" fill="#112035"/><rect x="382" y="320" width="29" height="18" rx="2" fill="#112238"/><rect x="414" y="320" width="29" height="18" rx="2" fill="#142f4a"/><rect x="446" y="320" width="29" height="18" rx="2" fill="#195179"/><rect x="478" y="320" width="29" height="18" rx="2" fill="#237c89"/><rect x="510" y="320" width="29" height="18" rx="2" fill="#29958b"/><rect x="542" y="320" width="29" height="18" rx="2" fill="#29958b"/><rect x="574" y="320" width="29" height="18" rx="2" fill="#268689"/><rect x="606" y="320" width="29" height="18" rx="2" fill="#227888"/><rect x="638" y="320" width="29" height="18" rx="2" fill="#217488"/><rect x="670" y="320" width="29" height="18" rx="2" fill="#217288"/><rect x="702" y="320" width="29" height="18" rx="2" fill="#237b89"/><rect x="734" y="320" width="29" height="18" rx="2" fill="#28918a"/><rect x="766" y="320" width="29" height="18" rx="2" fill="#2ca28c"/><rect x="798" y="320" width="29" height="18" rx="2" fill="#2ca18b"/><rect x="830" y="320" width="29" height="18" rx="2" fill="#278a8a"/><rect x="862" y="320" width="29" height="18" rx="2" fill="#1f6987"/><rect x="894" y="320" width="29" height="18" rx="2" fill="#194f77"/><rect x="926" y="320" width="29" height="18" rx="2" fill="#163c5d"/><rect x="958" y="320" width="29" height="18" rx="2" fill="#14324e"/><text x="210" y="354" fill="#8A9BB2" font-size="12" font-family="roboto, sans-serif" text-anchor="end">Central Bank Parking</text><rect x="222" y="341" width="29" height="18" rx="2" fill="#132e48"/><rect x="254" y="341" width="29" height="18" rx="2" fill="#12273f"/><rect x="286" y="341" width="29" height="18" rx="2" fill="#112339"/><rect x="318" y="341" width="29" height="18" rx="2" fill="#112136"/><rect x="350" y="341" width="29" height="18" rx="2" fill="#111e33"/><rect x="382" y="341" width="29" height="18" rx="2" fill="#112035"/><rect x="414" y="341" width="29" height="18" rx="2" fill="#122840"/><rect x="446" y="341" width="29" height="18" rx="2" fill="#163b5a"/><rect x="478" y="341" width="29" height="18" rx="2" fill="#1b5c86"/><rect x="510" y="341" width="29" height="18" rx="2" fill="#247d89"/><rect x="542" y="341" width="29" height="18" rx="2" fill="#278a8a"/><rect x="574" y="341" width="29" height="18" rx="2" fill="#247e89"/><rect x="606" y="341" width="29" height="18" rx="2" fill="#217488"/><rect x="638" y="341" width="29" height="18" rx="2" fill="#207088"/><rect x="670" y="341" width="29" height="18" rx="2" fill="#217188"/><rect x="702" y="341" width="29" height="18" rx="2" fill="#227788"/><rect x="734" y="341" width="29" height="18" rx="2" fill="#268689"/><rect x="766" y="341" width="29" height="18" rx="2" fill="#28918a"/><rect x="798" y="341" width="29" height="18" rx="2" fill="#29938a"/><rect x="830" y="341" width="29" height="18" rx="2" fill="#258389"/><rect x="862" y="341" width="29" height="18" rx="2" fill="#206d87"/><rect x="894" y="341" width="29" height="18" rx="2" fill="#1a547e"/><rect x="926" y="341" width="29" height="18" rx="2" fill="#174569"/><rect x="958" y="341" width="29" height="18" rx="2" fill="#153756"/><text x="210" y="375" fill="#8A9BB2" font-size="12" font-family="roboto, sans-serif" text-anchor="end">R7 Neighbourhood Point</text><rect x="222" y="362" width="29" height="18" rx="2" fill="#1d6387"/><rect x="254" y="362" width="29" height="18" rx="2" fill="#19517a"/><rect x="286" y="362" width="29" height="18" rx="2" fill="#174468"/><rect x="318" y="362" width="29" height="18" rx="2" fill="#153958"/><rect x="350" y="362" width="29" height="18" rx="2" fill="#14304c"/><rect x="382" y="362" width="29" height="18" rx="2" fill="#132d46"/><rect x="414" y="362" width="29" height="18" rx="2" fill="#132d47"/><rect x="446" y="362" width="29" height="18" rx="2" fill="#14304c"/><rect x="478" y="362" width="29" height="18" rx="2" fill="#153755"/><rect x="510" y="362" width="29" height="18" rx="2" fill="#163b5a"/><rect x="542" y="362" width="29" height="18" rx="2" fill="#153a59"/><rect x="574" y="362" width="29" height="18" rx="2" fill="#163d5d"/><rect x="606" y="362" width="29" height="18" rx="2" fill="#174163"/><rect x="638" y="362" width="29" height="18" rx="2" fill="#174569"/><rect x="670" y="362" width="29" height="18" rx="2" fill="#184a70"/><rect x="702" y="362" width="29" height="18" rx="2" fill="#194f76"/><rect x="734" y="362" width="29" height="18" rx="2" fill="#1b5985"/><rect x="766" y="362" width="29" height="18" rx="2" fill="#1f6c87"/><rect x="798" y="362" width="29" height="18" rx="2" fill="#258489"/><rect x="830" y="362" width="29" height="18" rx="2" fill="#2a978b"/><rect x="862" y="362" width="29" height="18" rx="2" fill="#2a9a8b"/><rect x="894" y="362" width="29" height="18" rx="2" fill="#28918a"/><rect x="926" y="362" width="29" height="18" rx="2" fill="#258289"/><rect x="958" y="362" width="29" height="18" rx="2" fill="#217388"/><text x="210" y="396" fill="#8A9BB2" font-size="12" font-family="roboto, sans-serif" text-anchor="end">Knowledge City Campus</text><rect x="222" y="383" width="29" height="18" rx="2" fill="#11233a"/><rect x="254" y="383" width="29" height="18" rx="2" fill="#112137"/><rect x="286" y="383" width="29" height="18" rx="2" fill="#112035"/><rect x="318" y="383" width="29" height="18" rx="2" fill="#111f34"/><rect x="350" y="383" width="29" height="18" rx="2" fill="#111f33"/><rect x="382" y="383" width="29" height="18" rx="2" fill="#112036"/><rect x="414" y="383" width="29" height="18" rx="2" fill="#122941"/><rect x="446" y="383" width="29" height="18" rx="2" fill="#163f60"/><rect x="478" y="383" width="29" height="18" rx="2" fill="#1d6387"/><rect x="510" y="383" width="29" height="18" rx="2" fill="#278c8a"/><rect x="542" y="383" width="29" height="18" rx="2" fill="#2b9b8b"/><rect x="574" y="383" width="29" height="18" rx="2" fill="#288d8a"/><rect x="606" y="383" width="29" height="18" rx="2" fill="#247f89"/><rect x="638" y="383" width="29" height="18" rx="2" fill="#227888"/><rect x="670" y="383" width="29" height="18" rx="2" fill="#227788"/><rect x="702" y="383" width="29" height="18" rx="2" fill="#247d89"/><rect x="734" y="383" width="29" height="18" rx="2" fill="#237c89"/><rect x="766" y="383" width="29" height="18" rx="2" fill="#206d87"/><rect x="798" y="383" width="29" height="18" rx="2" fill="#1b5984"/><rect x="830" y="383" width="29" height="18" rx="2" fill="#18496f"/><rect x="862" y="383" width="29" height="18" rx="2" fill="#163c5c"/><rect x="894" y="383" width="29" height="18" rx="2" fill="#14334f"/><rect x="926" y="383" width="29" height="18" rx="2" fill="#132b44"/><rect x="958" y="383" width="29" height="18" rx="2" fill="#12273f"/><text x="210" y="417" fill="#8A9BB2" font-size="12" font-family="roboto, sans-serif" text-anchor="end">Council of Ministers Gara…</text><rect x="222" y="404" width="29" height="18" rx="2" fill="#12273f"/><rect x="254" y="404" width="29" height="18" rx="2" fill="#11233a"/><rect x="286" y="404" width="29" height="18" rx="2" fill="#112035"/><rect x="318" y="404" width="29" height="18" rx="2" fill="#111e33"/><rect x="350" y="404" width="29" height="18" rx="2" fill="#111e33"/><rect x="382" y="404" width="29" height="18" rx="2" fill="#112136"/><rect x="414" y="404" width="29" height="18" rx="2" fill="#122942"/><rect x="446" y="404" width="29" height="18" rx="2" fill="#163f61"/><rect x="478" y="404" width="29" height="18" rx="2" fill="#1c5e86"/><rect x="510" y="404" width="29" height="18" rx="2" fill="#217488"/><rect x="542" y="404" width="29" height="18" rx="2" fill="#227688"/><rect x="574" y="404" width="29" height="18" rx="2" fill="#1e6787"/><rect x="606" y="404" width="29" height="18" rx="2" fill="#1b5884"/><rect x="638" y="404" width="29" height="18" rx="2" fill="#1a557f"/><rect x="670" y="404" width="29" height="18" rx="2" fill="#1a5782"/><rect x="702" y="404" width="29" height="18" rx="2" fill="#1c5f86"/><rect x="734" y="404" width="29" height="18" rx="2" fill="#1f6b87"/><rect x="766" y="404" width="29" height="18" rx="2" fill="#237d89"/><rect x="798" y="404" width="29" height="18" rx="2" fill="#237b89"/><rect x="830" y="404" width="29" height="18" rx="2" fill="#1e6787"/><rect x="862" y="404" width="29" height="18" rx="2" fill="#1a527b"/><rect x="894" y="404" width="29" height="18" rx="2" fill="#174264"/><rect x="926" y="404" width="29" height="18" rx="2" fill="#153552"/><rect x="958" y="404" width="29" height="18" rx="2" fill="#132d47"/><text x="210" y="438" fill="#8A9BB2" font-size="12" font-family="roboto, sans-serif" text-anchor="end">Diplomatic Quarter Annex</text><rect x="222" y="425" width="29" height="18" rx="2" fill="#163f61"/><rect x="254" y="425" width="29" height="18" rx="2" fill="#14324f"/><rect x="286" y="425" width="29" height="18" rx="2" fill="#132c46"/><rect x="318" y="425" width="29" height="18" rx="2" fill="#12273f"/><rect x="350" y="425" width="29" height="18" rx="2" fill="#112339"/><rect x="382" y="425" width="29" height="18" rx="2" fill="#112238"/><rect x="414" y="425" width="29" height="18" rx="2" fill="#12243b"/><rect x="446" y="425" width="29" height="18" rx="2" fill="#132a43"/><rect x="478" y="425" width="29" height="18" rx="2" fill="#14324d"/><rect x="510" y="425" width="29" height="18" rx="2" fill="#163c5c"/><rect x="542" y="425" width="29" height="18" rx="2" fill="#174366"/><rect x="574" y="425" width="29" height="18" rx="2" fill="#174568"/><rect x="606" y="425" width="29" height="18" rx="2" fill="#174569"/><rect x="638" y="425" width="29" height="18" rx="2" fill="#184a6f"/><rect x="670" y="425" width="29" height="18" rx="2" fill="#194d74"/><rect x="702" y="425" width="29" height="18" rx="2" fill="#194e75"/><rect x="734" y="425" width="29" height="18" rx="2" fill="#1b5883"/><rect x="766" y="425" width="29" height="18" rx="2" fill="#206d87"/><rect x="798" y="425" width="29" height="18" rx="2" fill="#247f89"/><rect x="830" y="425" width="29" height="18" rx="2" fill="#258489"/><rect x="862" y="425" width="29" height="18" rx="2" fill="#278b8a"/><rect x="894" y="425" width="29" height="18" rx="2" fill="#258289"/><rect x="926" y="425" width="29" height="18" rx="2" fill="#1e6887"/><rect x="958" y="425" width="29" height="18" rx="2" fill="#1a527a"/><text x="222" y="472" fill="#8A9BB2" font-size="13" font-family="roboto, sans-serif">idle</text><rect x="264" y="460" width="9" height="12" fill="#101b2e"/><rect x="273" y="460" width="9" height="12" fill="#112339"/><rect x="282" y="460" width="9" height="12" fill="#132a43"/><rect x="291" y="460" width="9" height="12" fill="#14324e"/><rect x="300" y="460" width="9" height="12" fill="#153a59"/><rect x="309" y="460" width="9" height="12" fill="#174163"/><rect x="318" y="460" width="9" height="12" fill="#18496e"/><rect x="327" y="460" width="9" height="12" fill="#195079"/><rect x="336" y="460" width="9" height="12" fill="#1b5883"/><rect x="345" y="460" width="9" height="12" fill="#1d6187"/><rect x="354" y="460" width="9" height="12" fill="#1f6b87"/><rect x="363" y="460" width="9" height="12" fill="#217488"/><rect x="372" y="460" width="9" height="12" fill="#247d89"/><rect x="381" y="460" width="9" height="12" fill="#268789"/><rect x="390" y="460" width="9" height="12" fill="#28908a"/><rect x="399" y="460" width="9" height="12" fill="#2b9a8b"/><rect x="408" y="460" width="9" height="12" fill="#2da38c"/><rect x="417" y="460" width="9" height="12" fill="#39a887"/><rect x="426" y="460" width="9" height="12" fill="#4ea97d"/><rect x="435" y="460" width="9" height="12" fill="#64aa74"/><rect x="444" y="460" width="9" height="12" fill="#7aab6a"/><rect x="453" y="460" width="9" height="12" fill="#8fac60"/><rect x="462" y="460" width="9" height="12" fill="#a5ad57"/><rect x="471" y="460" width="9" height="12" fill="#baae4d"/><rect x="480" y="460" width="9" height="12" fill="#d0af43"/><rect x="489" y="460" width="9" height="12" fill="#e0ad3c"/><rect x="498" y="460" width="9" height="12" fill="#e0a23e"/><rect x="507" y="460" width="9" height="12" fill="#e19740"/><rect x="516" y="460" width="9" height="12" fill="#e18c42"/><rect x="525" y="460" width="9" height="12" fill="#e18143"/><rect x="534" y="460" width="9" height="12" fill="#e17645"/><rect x="543" y="460" width="9" height="12" fill="#e26b47"/><rect x="552" y="460" width="9" height="12" fill="#e26048"/><rect x="561" y="460" width="9" height="12" fill="#e2554a"/><text x="580" y="472" fill="#8A9BB2" font-size="13" font-family="roboto, sans-serif">saturated (97% of chargers busy)</text></svg>
+      <div class="body" style="margin-top:22px;font-size:22px;color:#8A9BB2;">
+        The structure the models must learn: a commuter double-peak, a retail-led weekend,
+        and stations that saturate while their neighbours sit idle.
+      </div>
+    </div>
+  </div>
+
+  <div class="foot">src/data/simulate.py &nbsp;→&nbsp; data/raw/</div>
+  <div class="slide-no">02 / 05</div>
+</div>
+
+<div class="slide" data-canvas-width="1920" data-canvas-height="1080">
+  <div class="eyebrow">02 &nbsp;·&nbsp; The models</div>
+  <div class="h2" style="margin-top:20px;">Three models, one hour ahead</div>
+  <div class="rule" style="margin:28px 0 34px;"></div>
+
+  <div style="display:flex;gap:26px;">
+      <div class="panel" style="flex:1;padding:24px 30px 22px;border-top:4px solid #34D399;">
+        <div style="display:flex;align-items:baseline;gap:14px;">
+          <div style="font-size:30px;color:#34D399;font-weight:900;">①</div>
+          <div class="num" style="font-size:27px;color:#E9F0FA;">arrivals</div>
+        </div>
+        <div class="stat-l" style="margin:12px 0 20px;font-size:20px;height:46px;">How many EVs plug in next hour?</div>
+        <div style="display:flex;align-items:flex-end;gap:34px;">
+          <div><div class="num" style="font-size:50px;color:#34D399;line-height:1;">0.746</div>
+               <div class="stat-l" style="font-size:17px;">R² held out</div></div>
+          <div><div class="num" style="font-size:36px;color:#E9F0FA;line-height:1;">−24 %</div>
+               <div class="stat-l" style="font-size:17px;">MAE vs baseline</div></div>
+        </div>
+      </div>
+      <div class="panel" style="flex:1;padding:24px 30px 22px;border-top:4px solid #FBBF24;">
+        <div style="display:flex;align-items:baseline;gap:14px;">
+          <div style="font-size:30px;color:#FBBF24;font-weight:900;">②</div>
+          <div class="num" style="font-size:27px;color:#E9F0FA;">avg_wait_min</div>
+        </div>
+        <div class="stat-l" style="margin:12px 0 20px;font-size:20px;height:46px;">How long will a driver queue?</div>
+        <div style="display:flex;align-items:flex-end;gap:34px;">
+          <div><div class="num" style="font-size:50px;color:#FBBF24;line-height:1;">0.618</div>
+               <div class="stat-l" style="font-size:17px;">R² held out</div></div>
+          <div><div class="num" style="font-size:36px;color:#E9F0FA;line-height:1;">−41 %</div>
+               <div class="stat-l" style="font-size:17px;">MAE vs baseline</div></div>
+        </div>
+      </div>
+      <div class="panel" style="flex:1;padding:24px 30px 22px;border-top:4px solid #38BDF8;">
+        <div style="display:flex;align-items:baseline;gap:14px;">
+          <div style="font-size:30px;color:#38BDF8;font-weight:900;">③</div>
+          <div class="num" style="font-size:27px;color:#E9F0FA;">energy_kwh</div>
+        </div>
+        <div class="stat-l" style="margin:12px 0 20px;font-size:20px;height:46px;">How much grid energy is drawn?</div>
+        <div style="display:flex;align-items:flex-end;gap:34px;">
+          <div><div class="num" style="font-size:50px;color:#38BDF8;line-height:1;">0.927</div>
+               <div class="stat-l" style="font-size:17px;">R² held out</div></div>
+          <div><div class="num" style="font-size:36px;color:#E9F0FA;line-height:1;">−58 %</div>
+               <div class="stat-l" style="font-size:17px;">MAE vs baseline</div></div>
+        </div>
+      </div></div>
+
+  <div style="display:flex;gap:52px;margin-top:30px;align-items:flex-start;">
+    <div style="width:900px;flex:none;">
+      <div class="label" style="margin-bottom:20px;">Validation — time split, last 2 months held out</div>
+      <table class="data">
+        <tr><th>target</th><th>MAE</th><th>RMSE</th><th>R²</th><th>baseline</th><th>improvement</th></tr>
+        <tr><td class="mono">arrivals</td><td class="mono">0.980</td><td class="mono">1.505</td>
+            <td class="mono">0.746</td><td>same hour last week</td>
+            <td class="mono" style="color:#34D399;">−24.0 %</td></tr>
+        <tr><td class="mono">avg_wait_min</td><td class="mono">1.105</td><td class="mono">4.125</td>
+            <td class="mono">0.618</td><td>historical profile</td>
+            <td class="mono" style="color:#34D399;">−41.3 %</td></tr>
+        <tr><td class="mono">energy_kwh</td><td class="mono">14.52</td><td class="mono">23.48</td>
+            <td class="mono">0.927</td><td>same hour last week</td>
+            <td class="mono" style="color:#34D399;">−57.7 %</td></tr>
+      </table>
+      <div class="body" style="margin-top:20px;font-size:21px;color:#8A9BB2;">
+        A random split would leak the future through the lag features. Training stops at
+        31 October; scoring runs on the 29,280 station-hours after it.
+      </div>
+      <div class="panel" style="margin-top:26px;padding:24px 32px;">
+        <div style="display:flex;gap:56px;align-items:flex-end;">
+          <div><div class="num" style="font-size:48px;color:#34D399;line-height:1;">93.7 %</div>
+               <div class="stat-l" style="font-size:19px;">traffic-light accuracy
+               <span style="color:#34D399;">●</span><span style="color:#FBBF24;">●</span><span style="color:#F87171;">●</span></div></div>
+          <div><div class="num" style="font-size:48px;color:#E9F0FA;line-height:1;">93.0 %</div>
+               <div class="stat-l" style="font-size:19px;">predictions within 5 minutes</div></div>
+        </div>
+      </div>
+    </div>
+
+    <div style="flex:1;">
+      <div class="panel" style="padding:22px 30px;">
+        <div class="label" style="margin-bottom:14px;">51 features, six families</div>
+        <div class="body" style="font-size:20px;line-height:1.62;">
+          calendar &amp; cyclical encodings · weather &amp; scheduled events · station capacity ·
+          lags at 1/2/3/24/48/<b style="color:#E9F0FA;">168</b> h · rolling means over 3/24/168 h ·
+          leak-free expanding (station × weekday × hour) profile · city-wide network state
+        </div>
+      </div>
+      <div class="panel" style="padding:22px 30px;margin-top:16px;border-left:4px solid #FBBF24;">
+        <div class="label" style="margin-bottom:16px;color:#FBBF24;">What the queue model learned</div>
+        <div class="body" style="font-size:20px;line-height:1.56;">
+          Its three strongest features are <span class="num" style="color:#E9F0FA;">arrivals</span>,
+          <span class="num" style="color:#E9F0FA;">chargers per arrival</span> and
+          <span class="num" style="color:#E9F0FA;">session length</span> — it rediscovered
+          ρ = λ ⁄ (c·μ) from queueing theory on its own.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="foot">HistGradientBoosting · scikit-learn · cascade scored end-to-end (wait R² 0.506, energy R² 0.888)</div>
+  <div class="slide-no">03 / 05</div>
+</div>
+
+<div class="slide" data-canvas-width="1920" data-canvas-height="1080">
+  <div class="eyebrow">03 &nbsp;·&nbsp; The decision</div>
+  <div class="h2" style="margin-top:20px;max-width:1560px;">
+    Forecasting says what will happen.<br/>
+    <span style="color:#34D399;">Optimisation decides what to do about it.</span>
+  </div>
+  <div class="rule" style="margin:24px 0 26px;"></div>
+
+  <div style="display:flex;gap:52px;align-items:flex-start;">
+    <div style="width:700px;flex:none;">
+      <div class="body" style="margin-bottom:26px;">
+        Once you know 30 cars arrive between 17:00 and 19:00, powering them is
+        <b style="color:#E9F0FA;">not a prediction problem</b> — it is constrained allocation.
+        So it is solved as a linear program, not another regressor.
+      </div>
+      <div class="panel" style="padding:24px 30px;font-family:'ubuntu-mono',monospace;
+           font-size:18px;line-height:1.78;color:#B9C9DC;">
+        <span style="color:#34D399;">minimise</span>&nbsp;&nbsp; Σ price[t]·x[v,t]
+          <span style="color:#8A9BB2;">&nbsp; energy bill</span><br/>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; + w · P_peak
+          <span style="color:#8A9BB2;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; flatten the profile</span><br/>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; + 500 · Σ u[v]
+          <span style="color:#8A9BB2;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; unmet energy</span><br/><br/>
+        <span style="color:#38BDF8;">s.t.</span>&nbsp;&nbsp;&nbsp;&nbsp; Σ x[v,t] + u[v] = E_v
+          <span style="color:#8A9BB2;">&nbsp; every car gets its charge</span><br/>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 0 ≤ x[v,t] ≤ P_v
+          <span style="color:#8A9BB2;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; charger + vehicle limit</span><br/>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; x = 0 outside [arrive, leave]<br/>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Σ_v x[v,t] ≤ cap[t]
+          <span style="color:#8A9BB2;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; grid ceiling</span>
+      </div>
+      <div class="body" style="margin-top:24px;font-size:21px;color:#8A9BB2;">
+        Solved with HiGHS via <span class="num">scipy.optimize.linprog</span>.
+        934 vehicles · 32,616 kWh requested.
+        The unmet-energy slack keeps it always feasible.
+      </div>
+    </div>
+
+    <div style="flex:1;min-width:0;">
+      <div class="label" style="margin-bottom:14px;">Aggregate city load over 24 hours</div>
+      <svg viewBox="0 0 980 400" width="980" height="400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Aggregate charging load across 24 hours under three strategies"><line x1="74" y1="354.0" x2="960" y2="354.0" stroke="#1E2C42" stroke-width="1"/><text x="62" y="359.0" fill="#8A9BB2" font-size="14" font-family="ubuntu-mono, monospace" text-anchor="end">0</text><line x1="74" y1="272.0" x2="960" y2="272.0" stroke="#1E2C42" stroke-width="1"/><text x="62" y="277.0" fill="#8A9BB2" font-size="14" font-family="ubuntu-mono, monospace" text-anchor="end">700</text><line x1="74" y1="190.0" x2="960" y2="190.0" stroke="#1E2C42" stroke-width="1"/><text x="62" y="195.0" fill="#8A9BB2" font-size="14" font-family="ubuntu-mono, monospace" text-anchor="end">1,400</text><line x1="74" y1="108.0" x2="960" y2="108.0" stroke="#1E2C42" stroke-width="1"/><text x="62" y="113.0" fill="#8A9BB2" font-size="14" font-family="ubuntu-mono, monospace" text-anchor="end">2,100</text><line x1="74" y1="26.0" x2="960" y2="26.0" stroke="#1E2C42" stroke-width="1"/><text x="62" y="31.0" fill="#8A9BB2" font-size="14" font-family="ubuntu-mono, monospace" text-anchor="end">2,800</text><text x="74" y="380" fill="#8A9BB2" font-size="14" font-family="ubuntu-mono, monospace" text-anchor="middle">00</text><text x="190" y="380" fill="#8A9BB2" font-size="14" font-family="ubuntu-mono, monospace" text-anchor="middle">03</text><text x="305" y="380" fill="#8A9BB2" font-size="14" font-family="ubuntu-mono, monospace" text-anchor="middle">06</text><text x="421" y="380" fill="#8A9BB2" font-size="14" font-family="ubuntu-mono, monospace" text-anchor="middle">09</text><text x="536" y="380" fill="#8A9BB2" font-size="14" font-family="ubuntu-mono, monospace" text-anchor="middle">12</text><text x="652" y="380" fill="#8A9BB2" font-size="14" font-family="ubuntu-mono, monospace" text-anchor="middle">15</text><text x="767" y="380" fill="#8A9BB2" font-size="14" font-family="ubuntu-mono, monospace" text-anchor="middle">18</text><text x="883" y="380" fill="#8A9BB2" font-size="14" font-family="ubuntu-mono, monospace" text-anchor="middle">21</text><line x1="74" y1="113.3" x2="960" y2="113.3" stroke="#38BDF8" stroke-width="2" stroke-dasharray="8 6"/><text x="960" y="103.3" fill="#38BDF8" font-size="14" font-family="roboto, sans-serif" font-weight="500" text-anchor="end">grid ceiling 2,054 kW</text><polyline points="74.0,324.8 112.5,329.5 151.0,334.2 189.6,344.5 228.1,347.9 266.6,339.9 305.1,308.5 343.7,250.4 382.2,181.4 420.7,167.6 459.2,160.2 497.7,157.4 536.3,157.2 574.8,164.9 613.3,137.5 651.8,115.0 690.3,53.2 728.9,60.9 767.4,90.8 805.9,103.2 844.4,131.5 883.0,202.9 921.5,222.3 960.0,266.7" fill="none" stroke="#F87171" stroke-width="3.4" stroke-linejoin="round" stroke-linecap="round"/><polyline points="74.0,324.8 112.5,329.5 151.0,334.2 189.6,344.5 228.1,347.9 266.6,339.9 305.1,308.5 343.7,250.4 382.2,181.4 420.7,167.6 459.2,160.2 497.7,157.4 536.3,157.2 574.8,164.9 613.3,137.5 651.8,115.0 690.3,113.4 728.9,113.4 767.4,113.4 805.9,113.4 844.4,113.4 883.0,164.8 921.5,286.8 960.0,113.4" fill="none" stroke="#FBBF24" stroke-width="3.4" stroke-linejoin="round" stroke-linecap="round"/><polyline points="74.0,343.0 112.5,329.9 151.0,336.1 189.6,341.3 228.1,344.9 266.6,337.7 305.1,296.6 343.7,295.1 382.2,236.6 420.7,154.2 459.2,138.5 497.7,138.5 536.3,138.5 574.8,138.5 613.3,138.5 651.8,138.5 690.3,138.5 728.9,138.5 767.4,138.5 805.9,138.5 844.4,138.5 883.0,138.5 921.5,138.5 960.0,138.5" fill="none" stroke="#34D399" stroke-width="3.4" stroke-linejoin="round" stroke-linecap="round"/><rect x="88" y="32" width="13" height="13" rx="3" fill="#F87171"/><text x="108" y="43" fill="#E9F0FA" font-size="15" font-family="roboto, sans-serif">uncontrolled · peak 2,568 kW</text><rect x="368" y="32" width="13" height="13" rx="3" fill="#FBBF24"/><text x="388" y="43" fill="#E9F0FA" font-size="15" font-family="roboto, sans-serif">greedy · peak 2,054 kW</text><rect x="594" y="32" width="13" height="13" rx="3" fill="#34D399"/><text x="614" y="43" fill="#E9F0FA" font-size="15" font-family="roboto, sans-serif">optimised · peak 1,840 kW</text><text x="62" y="18" fill="#8A9BB2" font-size="13" font-family="roboto, sans-serif" text-anchor="end">kW</text></svg>
+      <div style="display:flex;gap:22px;margin-top:22px;">
+        <div class="panel" style="flex:1;padding:22px 26px;border-top:4px solid #34D399;">
+          <div class="num" style="font-size:52px;color:#34D399;line-height:1;">−28.3 %</div>
+          <div class="stat-l">peak demand<br/>2,568 → 1,840 kW</div>
+        </div>
+        <div class="panel" style="flex:1;padding:22px 26px;">
+          <div class="num" style="font-size:52px;line-height:1;">92.7 %</div>
+          <div class="stat-l">energy delivered<br/>on time — unchanged</div>
+        </div>
+        <div class="panel" style="flex:1;padding:22px 26px;">
+          <div class="num" style="font-size:52px;line-height:1;">4 → 0</div>
+          <div class="stat-l">hours breaching<br/>the grid ceiling</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="foot">src/optimization/scheduler.py · same cars, same energy, same deadlines</div>
+  <div class="slide-no">04 / 05</div>
+</div>
+
+<div class="slide" data-canvas-width="1920" data-canvas-height="1080">
+  <div class="eyebrow">04 &nbsp;·&nbsp; The product</div>
+  <div class="h2" style="margin-top:20px;">Two products from one forecasting core</div>
+  <div class="rule" style="margin:28px 0 34px;"></div>
+
+  <div style="display:flex;gap:34px;align-items:stretch;">
+    <div class="panel" style="flex:1.55;padding:36px 38px;">
+      <div style="display:flex;align-items:baseline;gap:16px;margin-bottom:8px;">
+        <div class="label" style="color:#34D399;">Driver app</div>
+        <div style="font-size:21px;color:#8A9BB2;">near Downtown · 18:00 · battery 22 % → 85 %</div>
+      </div>
+      <div class="body" style="margin:16px 0 26px;">
+        Ranked by <b style="color:#E9F0FA;">total time</b> = drive + queue + charge — never by distance.
+      </div>
+      <table class="data">
+        <tr><th>station</th><th>km</th><th>drive</th><th>queue</th><th>charge</th><th>total min</th></tr>
+        <tr style="background:rgba(52,211,153,.09);">
+        <td style="padding-left:14px;">
+          <span class="dot" style="background:#34D399;"></span>Iconic Tower CBD</td>
+        <td class="mono">1.64</td><td class="mono">5.4</td>
+        <td class="mono" style="color:#34D399;">1.5</td><td class="mono">25.8</td>
+        <td class="mono" style="font-size:26px;color:#E9F0FA;">32.7</td></tr><tr style="">
+        <td style="padding-left:0;">
+          <span class="dot" style="background:#34D399;"></span>Financial District North</td>
+        <td class="mono">1.03</td><td class="mono">3.9</td>
+        <td class="mono" style="color:#34D399;">1.4</td><td class="mono">43.0</td>
+        <td class="mono" style="font-size:26px;color:#E9F0FA;">48.3</td></tr><tr style="">
+        <td style="padding-left:0;">
+          <span class="dot" style="background:#34D399;"></span>Government District Hub</td>
+        <td class="mono">1.34</td><td class="mono">4.7</td>
+        <td class="mono" style="color:#34D399;">2.2</td><td class="mono">43.0</td>
+        <td class="mono" style="font-size:26px;color:#E9F0FA;">49.9</td></tr><tr style="">
+        <td style="padding-left:0;">
+          <span class="dot" style="background:#F87171;"></span>Downtown Mall Level B1</td>
+        <td class="mono">1.06</td><td class="mono">4.0</td>
+        <td class="mono" style="color:#F87171;">21.3</td><td class="mono">43.0</td>
+        <td class="mono" style="font-size:26px;color:#E9F0FA;">68.3</td></tr><tr style="">
+        <td style="padding-left:0;">
+          <span class="dot" style="background:#34D399;"></span>Council of Ministers Garage</td>
+        <td class="mono">0.74</td><td class="mono">3.3</td>
+        <td class="mono" style="color:#34D399;">0.0</td><td class="mono">117.2</td>
+        <td class="mono" style="font-size:26px;color:#E9F0FA;">120.5</td></tr>
+      </table>
+      <div class="body" style="margin-top:26px;font-size:22px;">
+        The system <b style="color:#E9F0FA;">rejects the two nearest stations</b>: the mall is 1 km
+        away but carries a 21-minute predicted queue, and the ministries garage is empty but
+        its 22 kW chargers would take two hours.
+      </div>
+    </div>
+
+    <div style="flex:1;display:flex;flex-direction:column;gap:22px;">
+      <div class="panel" style="flex:1;padding:34px 36px;">
+        <div class="label" style="color:#38BDF8;margin-bottom:22px;">City operator dashboard</div>
+        <ul class="ticks" style="font-size:22px;">
+          <li style="margin-bottom:15px;"><b>24-hour outlook</b> — expected EVs, grid load,
+              headroom against the ceiling</li>
+          <li style="margin-bottom:15px;"><b>Congestion heatmap</b> — every station, every hour</li>
+          <li style="margin-bottom:15px;"><b>Live network map</b> colour-coded by service level</li>
+          <li style="margin-bottom:0;"><b>Overload alerts</b> before the peak arrives</li>
+        </ul>
+      </div>
+      <div class="panel" style="padding:30px 36px;">
+        <div class="label" style="margin-bottom:18px;">Built with</div>
+        <div class="body" style="font-size:21px;line-height:1.7;">
+          Python · pandas · scikit-learn · SciPy&nbsp;HiGHS · Streamlit · FastAPI
+        </div>
+        <div style="display:flex;gap:36px;margin-top:26px;">
+          <div><div class="num" style="font-size:38px;color:#34D399;line-height:1;">40</div>
+               <div class="stat-l" style="font-size:17px;">invariant tests passing</div></div>
+          <div><div class="num" style="font-size:38px;line-height:1;">7</div>
+               <div class="stat-l" style="font-size:17px;">REST endpoints</div></div>
+          <div><div class="num" style="font-size:38px;line-height:1;">4</div>
+               <div class="stat-l" style="font-size:17px;">dashboard views</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="foot">github.com/mohamedtarek750/Smart-EV-Charging-Prediction-Recommendation-System</div>
+  <div class="slide-no">05 / 05</div>
+</div>
+</body>
+</html>
