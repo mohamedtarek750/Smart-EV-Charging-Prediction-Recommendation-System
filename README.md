@@ -67,6 +67,9 @@ python -m streamlit run app/dashboard.py
 python -m uvicorn app.api:app --reload
 ```
 
+On Windows you can also just double-click **`run_dashboard.bat`** or **`run_api.bat`** —
+they launch through the correct interpreter for you.
+
 > **Use `python -m`, not the bare `streamlit` / `uvicorn` commands.** If you have more
 > than one Python installed, the console scripts on your `PATH` can belong to a
 > *different* interpreter than `python` does — and the models will fail to load. See
